@@ -4,8 +4,8 @@
  * main - a function that collates double digits
  * in ascending order without repitition
  * separated by a comma
+ * Return: 0 always
  */
-
 int main(void)
 {
 	int a;
@@ -24,6 +24,8 @@ int main(void)
 			}
 		}
 	}
+
 	putchar('\n');
+
 	return (0);
 }
