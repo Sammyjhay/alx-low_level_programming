@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * rot13 - encodes a string to ROT13
@@ -11,12 +11,19 @@ char *rot13(char *s)
 {
 	int i, j;
 
-	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char rot_it[] =   "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char b[] =   "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; *(s + i); i++)
+	{
 		for (j = 0; j < 52; j++)
-			(s[i] == alphabet[j])
-				s[i] = rot_it[j], j = 52;
+		{
+			if (a[j] == *(a + i))
+			{
+				*(s + i) = b[j];
+				break;
+			}
+		}
+	}
 	return (s);
 }
